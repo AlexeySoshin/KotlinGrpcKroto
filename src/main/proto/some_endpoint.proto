@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package wix.api;
+
+import "google/api/annotations.proto";
+
+service SomeService {
+    rpc SayHello (HelloRequest) returns (HelloResponse) {
+        option (google.api.http).get = "/hello/{hello}";
+    }
+
+    rpc SayBye (ByeRequest) returns (ByeResponse) {
+        option (google.api.http).get = "/bye/{bye}/times/{times}";
+    }
+}
+
+message HelloRequest {
+    string hello = 1;
+}
+
+message HelloResponse {
+    string name = 1;
+}
+
+message ByeRequest {
+    string bye = 1;
+    int32 times = 2;
+}
+
+message ByeResponse {
+    string m = 1;
+    int64 t = 2;
+}

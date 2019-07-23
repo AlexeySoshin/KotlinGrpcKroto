@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package wix.api;
+
+option java_multiple_files = true;
+option java_outer_classname = "ContextProto";
+
+message RequestContext {
+    map<string, string> aspects = 1;
+}
+
+message ResponseContext {
+    repeated ResponseContextEntry aspects = 1;
+}
+
+message ResponseContextEntry {
+    map<string, string> aspectEntry = 1;
+}
